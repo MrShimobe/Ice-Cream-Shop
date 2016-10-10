@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EmployeeController">
+   <children>
+      <Label fx:id="labelEmployee" layoutX="245.0" layoutY="40.0" text="Employee">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lableSignIn" layoutX="102.0" layoutY="109.0" text="Sign in">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldId" layoutX="102.0" layoutY="158.0" onAction="#handle" text="ID" />
+      <TextField fx:id="textFieldPass" layoutX="329.0" layoutY="158.0" onAction="#handle" text="Password" />
+      <Button fx:id="continueBtn" layoutX="271.0" layoutY="259.0" mnemonicParsing="false" onAction="#handle" text="Continue" />
+   </children>
+</AnchorPane>
