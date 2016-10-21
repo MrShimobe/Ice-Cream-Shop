@@ -1,4 +1,85 @@
+public class Cone implements Cloneable {
+	private String coneType;
+	private boolean iceCreamOrYogurt;
+	private String flavor;
+	private int numberOfScoops;
+	private int cupSize;
 
-public class Cone {
+	final static double costPerScoop = .50;
+	final static double costPerIceCreamCone = .75;
+
+	public Cone(String coneType, boolean iceCreamOrYogurt, String flavor, int numberOfScoops) {
+		this.coneType = coneType;
+		this.iceCreamOrYogurt = iceCreamOrYogurt;
+		this.flavor = flavor;
+		this.numberOfScoops = numberOfScoops;
+	}
+
+	public Cone(String coneType, boolean iceCreamOrYogurt, String flavor) {
+		this.coneType = coneType;
+		this.iceCreamOrYogurt = iceCreamOrYogurt;
+		this.flavor = flavor;
+	}
+
+	public Cone(String coneType, boolean iceCreamOrYogurt, String flavor, int numberOfScoops, int cupSize) {
+		this.coneType = coneType;
+		this.iceCreamOrYogurt = iceCreamOrYogurt;
+		this.flavor = flavor;
+		this.numberOfScoops = numberOfScoops;
+		this.cupSize = cupSize;
+	}
+
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
+	public String getConeType() {
+		return coneType;
+	}
+
+	public void setConeType(String coneType) {
+		this.coneType = coneType;
+	}
+
+	public boolean isIceCreamOrYogurt() {
+		return iceCreamOrYogurt;
+	}
+
+	public void setIceCreamOrYogurt(boolean iceCreamOrYogurt) {
+		this.iceCreamOrYogurt = iceCreamOrYogurt;
+	}
+
+	public String getFlavor() {
+		return flavor;
+	}
+
+	public void setFlavor(String flavor) {
+		this.flavor = flavor;
+	}
+
+	public int getNumberOfScoops() {
+		return numberOfScoops;
+	}
+
+	public void setNumberOfScoops(int numberOfScoops) {
+		this.numberOfScoops = numberOfScoops;
+	}
+
+	public int getCupSize() {
+		return cupSize;
+	}
+
+	public void setCupSize(int cupSize) {
+		this.cupSize = cupSize;
+	}
+
+	public double getCost() {
+		return (costPerScoop * getNumberOfScoops() * costPerIceCreamCone);
+	}
+
+	@Override
+	public String toString() {
+		return flavor + " " + (iceCreamOrYogurt ? "IceCream" : "Yogurt") + " " + coneType + " with " + numberOfScoops + " scoops";
+	}
 
 }

@@ -1,54 +1,84 @@
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class CustomerController implements Initializable, EventHandler<ActionEvent> {
+public class CustomerController implements EventHandler<ActionEvent> {
 
-	private AnchorPane view;
+	protected AnchorPane view;
 
-	@FXML
-	private TextField firstNameTextField;
+	protected Customer customer;
 
-	@FXML
-	private TextField lastNameTextField;
+	protected Parent root;
 
 	@FXML
-	private Button continueBtn;
+	protected CustomerController customerController;
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+	@FXML
+	protected MenuController menuController;
 
-	}
+	@FXML
+	protected OrderController orderController;
 
-	@Override
+	@FXML
+	protected TextField firstNameTextField;
+
+	@FXML
+	protected TextField lastNameTextField;
+
+	@FXML
+	protected Button continueBtn;
+
 	public void handle(ActionEvent event) {
-		continueBtn.setOnAction(e -> {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(IceCreamController.class.getResource("Menu.fxml"));
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(CustomerController.class.getResource("Menu.fxml"));
+
+		if(checkDataFields()){continueBtn.setOnAction(e -> {
 
 			try {
-				view = (AnchorPane) loader.load();
+				customer = new Customer(firstNameTextField.getText(), lastNameTextField.getText());
+				root = (Parent) loader.load();
+				MenuController menuController = (MenuController) loader.getController();
+				menuController.setCustomer(customer);
+
+				closeCurrentWindow(continueBtn);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
+
+			view = (AnchorPane) root;
 			Scene scene = new Scene(view);
 			Stage stage = new Stage();
 			stage.setTitle("Customer Information");
 			stage.setScene(scene);
 			stage.show();
-
-		});
+		}); }
 	}
 
+	private boolean checkDataFields() {
+		if(firstNameTextField.getText().isEmpty() && lastNameTextField.getText().isEmpty()){
+			Alert alert = new Alert(AlertType.INFORMATION);
+	        alert.setTitle("Ice-Cream Shop");
+	        alert.setHeaderText("Information");
+	        alert.setContentText("Please enter your first and last name");
+	        alert.showAndWait();
+	        return false;
+		}
+		return true;
+	}
+
+	protected void closeCurrentWindow(Button btn) {
+		Stage stage = (Stage) btn.getScene().getWindow();
+		stage.close();
+	}
 }

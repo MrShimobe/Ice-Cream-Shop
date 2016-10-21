@@ -1,17 +1,18 @@
+import java.io.IOException;
 
 public class Customer {
 	private String firstName;
 	private String lastName;
-	private String customerID;
+	private static int customerID = 0;;
 
-	public Customer(String firstName, String lastName, String customerID) {
+	public Customer(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.customerID = customerID;
+		customerID++;
 	}
 
-	public Customer(String customerID) {
-		this.customerID = customerID;
+	public Customer() throws IOException {
+
 	}
 
 	public String getFirstName() {
@@ -22,8 +23,20 @@ public class Customer {
 		return lastName;
 	}
 
-	public String getCustomerID() {
+	public int getCustomerID() {
 		return customerID;
 	}
 
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	@Override
+	public String toString() {
+		return firstName + " " + lastName;
+	}
 }

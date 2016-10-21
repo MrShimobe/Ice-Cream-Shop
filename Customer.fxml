@@ -14,13 +14,23 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="signInLabel" layoutX="83.0" layoutY="103.0" text="SIGN IN">
+      <Label fx:id="signInLabel" layoutX="76.0" layoutY="84.0" text="SIGN IN">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="firstNameTextField" layoutX="76.0" layoutY="140.0" onAction="#handle" prefHeight="27.0" prefWidth="180.0" text="First Name" />
-      <TextField fx:id="lastNameTextField" layoutX="332.0" layoutY="140.0" onAction="#handle" prefHeight="27.0" prefWidth="180.0" text="Last Name" />
-      <Button fx:id="continueBtn" layoutX="263.0" layoutY="258.0" mnemonicParsing="false" onAction="#handle" text="Continue" />
+      <TextField fx:id="firstNameTextField" layoutX="76.0" layoutY="160.0" onAction="#handle" prefHeight="27.0" prefWidth="180.0" />
+      <TextField fx:id="lastNameTextField" layoutX="337.0" layoutY="160.0" onAction="#handle" prefHeight="27.0" prefWidth="180.0" />
+      <Button fx:id="continueBtn" layoutX="263.0" layoutY="323.0" mnemonicParsing="false" onAction="#handle" text="Continue" />
+      <Label fx:id="lblFirst" layoutX="76.0" layoutY="129.0" text="First Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblLast" layoutX="337.0" layoutY="129.0" text="Last Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

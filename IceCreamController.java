@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -8,11 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class IceCreamController implements Initializable, EventHandler<ActionEvent> {
+public class IceCreamController extends Application implements Initializable, EventHandler<ActionEvent> {
 
 	private AnchorPane view;
 
@@ -23,9 +24,30 @@ public class IceCreamController implements Initializable, EventHandler<ActionEve
 	private Button staffBtn;
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+	public void start(Stage primaryStage) throws IOException {
 
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(IceCreamController.class.getResource("IceCreamStartUp.fxml"));
+
+		try {
+			view = (AnchorPane) loader.load();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+		Scene scene = new Scene(view);
+		primaryStage.setTitle("Ice Cream Shop");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 	}
 
 	@Override
@@ -36,6 +58,7 @@ public class IceCreamController implements Initializable, EventHandler<ActionEve
 
 			try {
 				view = (AnchorPane) loader.load();
+				closeWindow(customerBtn);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
@@ -63,6 +86,12 @@ public class IceCreamController implements Initializable, EventHandler<ActionEve
 			stage.show();
 
 		});
+
+	}
+
+	private void closeWindow(Button customerBtn2) {
+		Stage stage = (Stage) customerBtn2.getScene().getWindow();
+		stage.close();
 	}
 
 }
