@@ -7,23 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FF7518;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OrderController">
    <children>
-      <Label layoutX="371.0" layoutY="24.0" text="Order Number">
+      <Label layoutX="371.0" layoutY="24.0" style="-fx-text-fill: #FFFFFF;" text="Order Number">
          <font>
             <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="426.0" layoutY="161.0" text="Total">
+      <Label layoutX="426.0" layoutY="161.0" style="-fx-text-fill: #FFFFFF;" text="Total">
          <font>
             <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="btnExit" layoutX="280.0" layoutY="349.0" mnemonicParsing="false" onAction="#handle" text="Exit" />
+      <Button fx:id="btnExit" layoutX="280.0" layoutY="349.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #4F86F7;" text="Exit" />
       <TextField fx:id="IDTxt" layoutX="437.0" layoutY="88.0" prefHeight="27.0" prefWidth="41.0" />
       <TextField fx:id="totalTxt" layoutX="413.0" layoutY="221.0" prefHeight="27.0" prefWidth="98.0" />
       <TextArea fx:id="orderTxt" layoutX="14.0" layoutY="88.0" prefHeight="247.0" prefWidth="366.0" />
-      <Label layoutX="82.0" layoutY="24.0" text="Your Order">
+      <Label layoutX="82.0" layoutY="24.0" style="-fx-text-fill: #FFFFFF;" text="Your Order">
          <font>
             <Font name="Calibri Bold" size="30.0" />
          </font>

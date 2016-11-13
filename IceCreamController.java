@@ -76,6 +76,7 @@ public class IceCreamController extends Application implements Initializable, Ev
 
 			try {
 				view = (AnchorPane) loader.load();
+				closeWindow(customerBtn);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}

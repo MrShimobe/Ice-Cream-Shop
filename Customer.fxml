@@ -3,34 +3,46 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #94704D;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerController">
    <children>
       <Label layoutX="166.0" layoutY="112.0" />
-      <Label fx:id="newOrderLabel" layoutX="219.0" layoutY="45.0" text="START NEW ORDER">
+      <Label fx:id="newOrderLabel" layoutX="219.0" layoutY="45.0" style="-fx-text-fill: #FFFFFF;" text="START NEW ORDER">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="signInLabel" layoutX="76.0" layoutY="84.0" text="SIGN IN">
+      <Label fx:id="signInLabel" layoutX="76.0" layoutY="84.0" style="-fx-text-fill: #FFFFFF;" text="SIGN IN">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <TextField fx:id="firstNameTextField" layoutX="76.0" layoutY="160.0" onAction="#handle" prefHeight="27.0" prefWidth="180.0" />
       <TextField fx:id="lastNameTextField" layoutX="337.0" layoutY="160.0" onAction="#handle" prefHeight="27.0" prefWidth="180.0" />
-      <Button fx:id="continueBtn" layoutX="263.0" layoutY="323.0" mnemonicParsing="false" onAction="#handle" text="Continue" />
-      <Label fx:id="lblFirst" layoutX="76.0" layoutY="129.0" text="First Name">
+      <Button fx:id="continueBtn" layoutX="263.0" layoutY="323.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #F7E7A3;" text="Continue" />
+      <Label fx:id="lblFirst" layoutX="76.0" layoutY="129.0" style="-fx-text-fill: #FFFFFF;" text="First Name">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblLast" layoutX="337.0" layoutY="129.0" text="Last Name">
+      <Label fx:id="lblLast" layoutX="337.0" layoutY="129.0" style="-fx-text-fill: #FFFFFF;" text="Last Name">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
+      <ImageView fitHeight="135.0" fitWidth="200.0" layoutX="66.0" layoutY="215.0">
+         <image>
+            <Image url="@IceCream.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="164.0" fitWidth="120.0" layoutX="397.0" layoutY="187.0">
+         <image>
+            <Image url="@IceCreamGlass.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

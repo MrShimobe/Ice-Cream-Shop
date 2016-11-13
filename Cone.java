@@ -45,6 +45,13 @@ public class Cone implements Cloneable {
 		return iceCreamOrYogurt;
 	}
 
+	public int isIceCreamOrYogurt2() {
+		if (iceCreamOrYogurt == true)
+			return 1;
+		return 0;
+
+	}
+
 	public void setIceCreamOrYogurt(boolean iceCreamOrYogurt) {
 		this.iceCreamOrYogurt = iceCreamOrYogurt;
 	}
@@ -74,12 +81,13 @@ public class Cone implements Cloneable {
 	}
 
 	public double getCost() {
-		return (costPerScoop * getNumberOfScoops() * costPerIceCreamCone);
+		return (costPerScoop * getNumberOfScoops() + costPerIceCreamCone);
 	}
 
 	@Override
 	public String toString() {
-		return flavor + " " + (iceCreamOrYogurt ? "IceCream" : "Yogurt") + " " + coneType + " with " + numberOfScoops + " scoops";
+		return flavor + " " + (iceCreamOrYogurt ? "IceCream" : "Yogurt") + " " + coneType + " with " + numberOfScoops
+				+ " scoops";
 	}
 
 }

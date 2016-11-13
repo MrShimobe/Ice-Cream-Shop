@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
@@ -16,7 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
@@ -34,7 +36,7 @@ public class MenuController implements EventHandler<ActionEvent>, Initializable 
 
 	protected Parent root;
 
-	protected LinkedList<Cone> list = new LinkedList<>();
+	protected LinkedList<Cone> list = new LinkedList<Cone>();
 
 	protected ToggleGroup group = new ToggleGroup();
 
@@ -63,16 +65,7 @@ public class MenuController implements EventHandler<ActionEvent>, Initializable 
 	protected Button removeOrder;
 
 	@FXML
-	private Label radioLbl;
-
-	@FXML
-	private Label flavorLbl;
-
-	@FXML
-	private Label coneLbl;
-
-	@FXML
-	private Label scoopsLbl;
+	private ListView listView;
 
 	private String[] flavorList = { "Banana Nut Fudge", "Black Walnut", "Burgundy Cherry", "Butterscotch Ribbon",
 			"Cherry Macaroon", "Chocolate", "Chocolate Almond", "Chocolate Chip", "Chocolate Fudge", "Chocolate Mint",
@@ -83,11 +76,15 @@ public class MenuController implements EventHandler<ActionEvent>, Initializable 
 
 	ObservableList<String> flaveList = FXCollections.observableArrayList(flavorList);
 
+	ObservableList<Cone> cones = FXCollections.observableList(list);
+
 	private String[] coneList = { "Cake Cone", "Waffle Cone", "Sugar Cone" };
 	ObservableList<String> listOfCones = FXCollections.observableArrayList(coneList);
 
 	private Integer[] scoopsList = { 1, 2, 3, 4, 5 };
 	ObservableList<Integer> scoopList = FXCollections.observableArrayList(scoopsList);
+
+	ObservableList<Cone> viewList;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -99,10 +96,6 @@ public class MenuController implements EventHandler<ActionEvent>, Initializable 
 		coneCombo.setItems(listOfCones);
 		scoopsCombo.setItems(scoopList);
 
-		radioLbl.setVisible(false);
-		flavorLbl.setVisible(false);
-		coneLbl.setVisible(false);
-		scoopsLbl.setVisible(false);
 	}
 
 	@Override
@@ -111,7 +104,7 @@ public class MenuController implements EventHandler<ActionEvent>, Initializable 
 		loader.setLocation(MenuController.class.getResource("Order.fxml"));
 
 		orderBtn.setOnAction(e -> {
-			if (checkDataFields() || list.size() > 0) {
+			if (list.size() > 0 || checkDataFields()) {
 				try {
 					if (list.size() == 0 || (checkDataFields() && list.size() < 2)) {
 						cone = new Cone(coneCombo.getValue(), icecreamRadio.isSelected(), flavorCombo.getValue(),
@@ -143,9 +136,10 @@ public class MenuController implements EventHandler<ActionEvent>, Initializable 
 		addOrder.setOnAction(e -> {
 			if (checkDataFields()) {
 				if (list.size() < 2) {
+					System.out.println("Something Added");
 					list.add(new Cone(coneCombo.getValue(), icecreamRadio.isSelected(), flavorCombo.getValue(),
 							scoopsCombo.getValue()));
-					System.out.println("Something Added");
+
 					clearNodes();
 				}
 
@@ -157,6 +151,7 @@ public class MenuController implements EventHandler<ActionEvent>, Initializable 
 					alert.showAndWait();
 				}
 			}
+			castIntoList();
 		});
 
 		removeOrder.setOnAction(e -> {
@@ -170,7 +165,15 @@ public class MenuController implements EventHandler<ActionEvent>, Initializable 
 				alert.setContentText("You have no orders to remove");
 				alert.showAndWait();
 			}
+			castIntoList();
 		});
+	}
+
+	private void castIntoList() {
+
+		ArrayList temp = new ArrayList(list);
+		ObservableList tempObserve = FXCollections.observableArrayList(temp);
+		listView.setItems(tempObserve);
 
 	}
 
@@ -183,23 +186,11 @@ public class MenuController implements EventHandler<ActionEvent>, Initializable 
 		}
 
 		else {
-
-			if (!icecreamRadio.isSelected() && !yogurtRadio.isSelected())
-				radioLbl.setVisible(true);
-			else
-				radioLbl.setVisible(false);
-			if (flavorCombo.getValue() == null)
-				flavorLbl.setVisible(true);
-			else
-				flavorLbl.setVisible(false);
-			if (coneCombo.getValue() == null)
-				coneLbl.setVisible(true);
-			else
-				coneLbl.setVisible(false);
-			if (scoopsCombo.getValue() == null)
-				scoopsLbl.setVisible(true);
-			else
-				scoopsLbl.setVisible(false);
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Ice-Cream Shop");
+			alert.setHeaderText("Order Information");
+			alert.setContentText("Please fill out all of the order information");
+			alert.showAndWait();
 		}
 		return false;
 
