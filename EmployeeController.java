@@ -79,7 +79,7 @@ public class EmployeeController implements Initializable, EventHandler<ActionEve
 				alert.showAndWait();
 			}
 
-			else if (textFieldId.getText().equals("olopez") && (textFieldPass.getText().equals("1224qwe."))) {
+			else if (textFieldId.getText().equals("olopez") && (textFieldPass.getText().equals("999999"))) {
 				FXMLLoader loader = new FXMLLoader();
 				loader.setLocation(IceCreamController.class.getResource("EmployeeMenu.fxml"));
 
