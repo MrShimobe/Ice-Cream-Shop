@@ -13,9 +13,9 @@
    <children>
       <RadioButton fx:id="icecreamRadio" layoutX="36.0" layoutY="110.0" mnemonicParsing="false" onAction="#handle" text="Ice Cream" />
       <RadioButton fx:id="yogurtRadio" layoutX="38.0" layoutY="163.0" mnemonicParsing="false" onAction="#handle" text="Yogurt" />
-      <ComboBox fx:id="flavorCombo" layoutX="441.0" layoutY="105.0" onAction="#handle" prefWidth="150.0" promptText="Flavor" style="-fx-background-color: #DE3163;" />
-      <ComboBox fx:id="scoopsCombo" layoutX="442.0" layoutY="283.0" onAction="#handle" prefHeight="27.0" prefWidth="162.0" promptText="Number of Scoops" style="-fx-background-color: #FF7518;" />
-      <ComboBox fx:id="coneCombo" layoutX="442.0" layoutY="193.0" onAction="#handle" prefWidth="150.0" promptText="Cone" style="-fx-background-color: #FFFDD0;" />
+      <ComboBox fx:id="flavorCombo" layoutX="441.0" layoutY="105.0" onAction="#handle" prefWidth="150.0" promptText="Flavor" style="-fx-background-color: #F3E5AB;" />
+      <ComboBox fx:id="scoopsCombo" layoutX="442.0" layoutY="283.0" onAction="#handle" prefHeight="27.0" prefWidth="162.0" promptText="Number of Scoops" style="-fx-background-color: #F3E5AB;" />
+      <ComboBox fx:id="coneCombo" layoutX="442.0" layoutY="193.0" onAction="#handle" prefWidth="150.0" promptText="Cone" style="-fx-background-color: #F3E5AB;" />
       <Label fx:id="menuLable" layoutX="279.0" layoutY="32.0" text="MENU">
          <font>
             <Font size="31.0" />
@@ -24,9 +24,9 @@
             <Reflection />
          </effect>
       </Label>
-      <Button fx:id="orderBtn" layoutX="271.0" layoutY="371.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #4F86F7;" text="PLACE ORDER" />
-      <Button fx:id="addOrder" layoutX="38.0" layoutY="228.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #F3E5AB;" text="Add Order" />
-      <Button fx:id="removeOrder" layoutX="36.0" layoutY="283.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #D2691E;" text="Remove Order" />
+      <Button fx:id="orderBtn" layoutX="271.0" layoutY="371.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #154ba3; -fx-text-fill: white;" text="PLACE ORDER" />
+      <Button fx:id="addOrder" layoutX="38.0" layoutY="228.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #DE3163; -fx-text-fill: white;" text="Add Order" />
+      <Button fx:id="removeOrder" layoutX="36.0" layoutY="283.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #DE3163; -fx-text-fill: white;" text="Remove Order" />
       <ListView fx:id="listView" layoutX="185.0" layoutY="100.0" prefHeight="246.0" prefWidth="234.0" />
    </children>
 </AnchorPane>

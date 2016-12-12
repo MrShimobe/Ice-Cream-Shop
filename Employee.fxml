@@ -4,33 +4,46 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EmployeeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="554.0" style="-fx-background-color: #98FF98;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EmployeeController">
    <children>
-      <Label fx:id="labelEmployee" layoutX="245.0" layoutY="40.0" text="Employee">
+      <Label fx:id="labelEmployee" layoutX="225.0" layoutY="40.0" text="Employee">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lableSignIn" layoutX="102.0" layoutY="109.0" text="Sign in">
+      <Label fx:id="lableSignIn" layoutX="102.0" layoutY="98.0" text="Sign in">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldId" layoutX="102.0" layoutY="158.0" onAction="#handle" />
-      <Button fx:id="continueBtn" layoutX="271.0" layoutY="259.0" mnemonicParsing="false" onAction="#handle" text="Continue" />
-      <Label layoutX="102.0" layoutY="136.0" text="ID">
+      <TextField fx:id="textFieldId" layoutX="67.0" layoutY="158.0" onAction="#handle" />
+      <Button fx:id="continueBtn" layoutX="245.0" layoutY="222.0" mnemonicParsing="false" onAction="#handle" text="Continue" />
+      <Label layoutX="67.0" layoutY="136.0" text="ID">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <PasswordField fx:id="textFieldPass" layoutX="330.0" layoutY="158.0" onAction="#handle" />
-      <Label layoutX="331.0" layoutY="136.0" text="Password">
+      <PasswordField fx:id="textFieldPass" layoutX="336.0" layoutY="158.0" onAction="#handle" />
+      <Label layoutX="336.0" layoutY="136.0" text="Password">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <Button fx:id="exitBtn" layoutX="479.0" layoutY="327.0" mnemonicParsing="false" onAction="#handle" text="Exit" />
+      <ImageView fitHeight="146.0" fitWidth="149.0" layoutX="67.0" layoutY="193.0">
+         <image>
+            <Image url="@../../../Desktop/7-512.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="146.0" fitWidth="149.0" layoutX="330.0" layoutY="193.0">
+         <image>
+            <Image url="@../../../Desktop/7-512.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

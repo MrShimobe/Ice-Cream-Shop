@@ -27,54 +27,86 @@ public class EmployeeMenuController implements Initializable, EventHandler<Actio
 	private AnchorPane view;
 
 	@FXML
-	private TextField textFieldId;
+	private Button manageBtn;
 
 	@FXML
-	private PasswordField textFieldPass;
+	private Button changeMenuBtn;
 
 	@FXML
-	private TextArea textArea;
+	private Button salesNumbersBtn;
 
-	ResultSet resultSet;
-
-	Connection connection;
-	Statement stmt;
-	ResultSet set;
+	@FXML
+	private Button exit;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		initializeDB();
-
-		try {
-			resultSet = stmt.executeQuery("select * from cscstudent");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		StringBuilder builder = new StringBuilder();
-
-		try {
-			while (resultSet.next()) {
-				try {
-					builder.append(resultSet.getString(1));
-					builder.append(resultSet.getString(2));
-					builder.append(resultSet.getString(3));
-					builder.append(resultSet.getString(4));
-
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
+
+		manageBtn.setOnAction(e -> {
+
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(IceCreamController.class.getResource("EmployeeManage.fxml"));
+
+			try {
+				view = (AnchorPane) loader.load();
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+			}
+
+			Scene scene = new Scene(view);
+			Stage stage = new Stage();
+			stage.setTitle("Ice Cream Shop");
+			stage.setScene(scene);
+			stage.show();
+			closeWindow(manageBtn);
+
+		});
+
+		changeMenuBtn.setOnAction(e -> {
+
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(IceCreamController.class.getResource("MenuConfigurations.fxml"));
+
+			try {
+				view = (AnchorPane) loader.load();
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+			}
+
+			Scene scene = new Scene(view);
+			Stage stage = new Stage();
+			stage.setTitle("Ice Cream Shop");
+			stage.setScene(scene);
+			stage.show();
+			closeWindow(changeMenuBtn);
+
+		});
+
+		exit.setOnAction(e -> {
+
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(EmployeeMenuController.class.getResource("IceCreamStartUp.fxml"));
+
+			try {
+				view = (AnchorPane) loader.load();
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+			}
+
+			Scene scene = new Scene(view);
+			Stage stage = new Stage();
+			stage.setTitle("Ice Cream Shop");
+			stage.setScene(scene);
+			stage.show();
+			closeWindow(exit);
+
+		});
 
 	}
 
@@ -82,21 +114,4 @@ public class EmployeeMenuController implements Initializable, EventHandler<Actio
 		Stage stage = (Stage) customerBtn2.getScene().getWindow();
 		stage.close();
 	}
-
-	private void initializeDB() {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("Driver loaded");
-
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/employee", "root", "1224qwe.");
-			System.out.print("Database Connectead");
-
-			stmt = connection.createStatement();
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-
-		}
-	}
-
 }

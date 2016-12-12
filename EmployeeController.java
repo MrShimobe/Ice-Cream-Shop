@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -34,36 +36,28 @@ public class EmployeeController implements Initializable, EventHandler<ActionEve
 	@FXML
 	private Button continueBtn;
 
-	Connection connection;
-	Statement statement;
-	ResultSet set;
+	@FXML
+	private Button exitBtn;
+
+	ConnectorClass connector = new ConnectorClass();
+	HashMap<String, String> users;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost/", "root", "1224qwe.");
-			statement = connection.createStatement();
-			statement.execute("use employee");
-			set = statement.executeQuery("select * from employee");
-		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("Not found");
-		}
+		users = new HashMap<String, String>();
 
-		System.out.println("Driver loaded");
-	        try {
-				while (set.next()){
-				    try {
-						System.out.println(set.getString(1) +  set.getString(2) +  set.getString(3));
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		String query = "select * from employee";
+		ResultSet rset;
+
+		try {
+			rset = connector.stmt.executeQuery(query);
+
+			while (rset.next()) {
+				users.put(rset.getString(1), rset.getString(2));
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -79,9 +73,9 @@ public class EmployeeController implements Initializable, EventHandler<ActionEve
 				alert.showAndWait();
 			}
 
-			else if (textFieldId.getText().equals("olopez") && (textFieldPass.getText().equals("999999"))) {
+			else if (checkEmployee()) {
 				FXMLLoader loader = new FXMLLoader();
-				loader.setLocation(IceCreamController.class.getResource("EmployeeMenu.fxml"));
+				loader.setLocation(EmployeeController.class.getResource("EmployeeMenu.fxml"));
 
 				try {
 					view = (AnchorPane) loader.load();
@@ -102,6 +96,41 @@ public class EmployeeController implements Initializable, EventHandler<ActionEve
 				alert.showAndWait();
 			}
 		});
+
+		exitBtn.setOnAction(e -> {
+
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(IceCreamController.class.getResource("IceCreamStartUp.fxml"));
+
+			try {
+				view = (AnchorPane) loader.load();
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+			}
+
+			Scene scene = new Scene(view);
+			Stage stage = new Stage();
+			stage.setTitle("Ice Cream Shop");
+			stage.setScene(scene);
+			stage.show();
+			closeWindow(exitBtn);
+
+		});
+	}
+
+	private boolean checkEmployee() {
+
+		Iterator<String> iter = users.keySet().iterator();
+
+		System.out.println();
+		while (iter.hasNext()) {
+			String key = iter.next();
+			System.out.println(key + " " + users.get(key));
+			if (textFieldId.getText().equals(key) && textFieldPass.getText().equals(users.get(key)))
+				return true;
+		}
+		return false;
 	}
 
 	private void closeWindow(Button customerBtn2) {

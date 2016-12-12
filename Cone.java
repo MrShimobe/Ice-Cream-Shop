@@ -2,13 +2,13 @@ public class Cone implements Cloneable {
 	private String coneType;
 	private boolean iceCreamOrYogurt;
 	private String flavor;
-	private int numberOfScoops;
+	private String numberOfScoops;
 	private int cupSize;
 
 	final static double costPerScoop = .50;
 	final static double costPerIceCreamCone = .75;
 
-	public Cone(String coneType, boolean iceCreamOrYogurt, String flavor, int numberOfScoops) {
+	public Cone(String coneType, boolean iceCreamOrYogurt, String flavor, String numberOfScoops) {
 		this.coneType = coneType;
 		this.iceCreamOrYogurt = iceCreamOrYogurt;
 		this.flavor = flavor;
@@ -21,7 +21,7 @@ public class Cone implements Cloneable {
 		this.flavor = flavor;
 	}
 
-	public Cone(String coneType, boolean iceCreamOrYogurt, String flavor, int numberOfScoops, int cupSize) {
+	public Cone(String coneType, boolean iceCreamOrYogurt, String flavor, String numberOfScoops, int cupSize) {
 		this.coneType = coneType;
 		this.iceCreamOrYogurt = iceCreamOrYogurt;
 		this.flavor = flavor;
@@ -64,11 +64,11 @@ public class Cone implements Cloneable {
 		this.flavor = flavor;
 	}
 
-	public int getNumberOfScoops() {
+	public String getNumberOfScoops() {
 		return numberOfScoops;
 	}
 
-	public void setNumberOfScoops(int numberOfScoops) {
+	public void setNumberOfScoops(String numberOfScoops) {
 		this.numberOfScoops = numberOfScoops;
 	}
 
@@ -81,7 +81,7 @@ public class Cone implements Cloneable {
 	}
 
 	public double getCost() {
-		return (costPerScoop * getNumberOfScoops() + costPerIceCreamCone);
+		return (costPerScoop * Integer.parseInt(getNumberOfScoops()) + costPerIceCreamCone);
 	}
 
 	@Override

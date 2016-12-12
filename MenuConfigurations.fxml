@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="533.0" style="-fx-background-color: #98FF98;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManageConfigurationsController">
+   <children>
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="151.0" layoutY="98.0">
+         <image>
+            <Image url="@../../../Desktop/plainicon.com-48982-512px-ef8.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="177.0" layoutY="23.0" text="Menu Configurations">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="62.0" text="Select Option" />
+      <ListView fx:id="listView" layoutX="311.0" layoutY="66.0" prefHeight="216.0" prefWidth="200.0" />
+      <ComboBox fx:id="choice" layoutX="27.0" layoutY="85.0" onAction="#handle" prefWidth="150.0" promptText="Menu Items" />
+      <Button fx:id="removeBtn" layoutX="24.0" layoutY="255.0" mnemonicParsing="false" onAction="#handle" text="Remove" />
+      <Button fx:id="addBtn" layoutX="27.0" layoutY="205.0" mnemonicParsing="false" onAction="#handle" text="Add" />
+      <Button fx:id="applyBtn" layoutX="27.0" layoutY="140.0" mnemonicParsing="false" onAction="#handle" text="Apply" />
+      <Button fx:id="exitBtn" layoutX="475.0" layoutY="328.0" mnemonicParsing="false" onAction="#handle" text="Exit" />
+   </children>
+</AnchorPane>

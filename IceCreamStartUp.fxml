@@ -8,9 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="586.0" style="-fx-background-color: #F7C299;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IceCreamController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="586.0" style="-fx-background-color: #154ba3;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IceCreamController">
    <children>
-      <Label fx:id="welcomeId" layoutX="176.0" layoutY="41.0" prefHeight="42.0" prefWidth="253.0" text="Welcome to the Icecream Shop" textAlignment="RIGHT">
+      <ImageView fitHeight="85.0" fitWidth="445.0" layoutX="69.0" layoutY="20.0">
+         <image>
+            <Image url="@../../../Downloads/BANNER.PGN.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="welcomeId" layoutX="174.0" layoutY="23.0" prefHeight="42.0" prefWidth="253.0" style="-fx-text-fill: white;" text="Welcome to the Icecream Shop" textAlignment="RIGHT">
          <effect>
             <Reflection />
          </effect>
@@ -18,24 +23,24 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Button fx:id="customerBtn" layoutX="251.0" layoutY="149.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #7D3D0E; -fx-text-fill: #FCFCFC;" text="Customer">
+      <Button fx:id="customerBtn" layoutX="251.0" layoutY="177.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #DE3163; -fx-text-fill: #FCFCFC;" text="Customer">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="staffBtn" layoutX="267.0" layoutY="225.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #DE3163; -fx-text-fill: #FFFFFF;" text="Staff">
+      <Button fx:id="staffBtn" layoutX="267.0" layoutY="264.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #DE3163; -fx-text-fill: #FFFFFF;" text="Staff">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="114.0" fitWidth="102.0" layoutX="74.0" layoutY="149.0">
+      <ImageView fitHeight="140.0" fitWidth="130.0" layoutX="364.0" layoutY="141.0">
          <image>
-            <Image url="@IceCreamCup.png" />
+            <Image url="@512x512.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="114.0" fitWidth="102.0" layoutX="417.0" layoutY="149.0">
+      <ImageView fitHeight="140.0" fitWidth="130.0" layoutX="100.0" layoutY="141.0">
          <image>
-            <Image url="@IceCreamCup.png" />
+            <Image url="@512x512.png" />
          </image>
       </ImageView>
    </children>

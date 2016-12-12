@@ -9,9 +9,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -39,47 +41,46 @@ public class OrderController implements EventHandler<ActionEvent> {
 	@FXML
 	private TextArea orderTxt;
 
-	private Statement stmt;
+	ConnectorClass connector = new ConnectorClass();
 
 	@FXML
 	private void fillTheMethods() {
 	}
 
 	@FXML
-	public void initilize(Order order) {
+	public void initilize(Order order, int num) {
 		this.order = order;
-		setFields(this.order);
+		setFields(this.order, num);
 
 	}
 
-	private void setFields(Order order) {
-		orderTxt.setText(order + "");
-		IDTxt.setText(order.getCust().getCustomerID() + "");
+	private void setFields(Order order, int num) {
+
+		orderTxt.setText(order.toString() + "");
+		IDTxt.setText(num + "");
 		totalTxt.setText("$" + order.getTotal());
+
+		if (num % 10 == 0) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Ice Cream Shop");
+			alert.setHeaderText("Order");
+			alert.setContentText("Thank-You for selecting IceCream Shop. You Get 1 Free Small Cone (: ");
+			alert.showAndWait();
+		}
 
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		initializeDB();
 
 		btnExit.setOnAction(e -> {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(OrderController.class.getResource("IceCreamStartUp.fxml"));
 
 			try {
-				String queryString = "insert into icecream value ";
-				cones = order.cones();
-
-				for (int i = 0; i < cones.length; i++) {
-					stmt.executeUpdate(
-							queryString + "\n (\'" + cones[i].getConeType() + "\', " + cones[i].isIceCreamOrYogurt2()
-									+ ", \'" + cones[i].getFlavor() + "\', " + cones[i].getNumberOfScoops() + ");");
-				}
-
 				view = (AnchorPane) loader.load();
 				closeCurrentWindow(btnExit);
-			} catch (IOException | SQLException ex) {
+			} catch (IOException ex) {
 
 				ex.printStackTrace();
 			}
@@ -103,21 +104,5 @@ public class OrderController implements EventHandler<ActionEvent> {
 		Stage stage = (Stage) btn.getScene().getWindow();
 		stage.close();
 
-	}
-
-	private void initializeDB() {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("Driver loaded");
-
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/employee", "root", "1224qwe.");
-			System.out.print("Database Connectead");
-
-			stmt = connection.createStatement();
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-
-		}
 	}
 }

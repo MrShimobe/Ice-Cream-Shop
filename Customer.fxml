@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #94704D;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #DE3163;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerController">
    <children>
       <Label layoutX="166.0" layoutY="112.0" />
       <Label fx:id="newOrderLabel" layoutX="219.0" layoutY="45.0" style="-fx-text-fill: #FFFFFF;" text="START NEW ORDER">
@@ -23,7 +23,7 @@
       </Label>
       <TextField fx:id="firstNameTextField" layoutX="76.0" layoutY="160.0" onAction="#handle" prefHeight="27.0" prefWidth="180.0" />
       <TextField fx:id="lastNameTextField" layoutX="337.0" layoutY="160.0" onAction="#handle" prefHeight="27.0" prefWidth="180.0" />
-      <Button fx:id="continueBtn" layoutX="263.0" layoutY="323.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #F7E7A3;" text="Continue" />
+      <Button fx:id="continueBtn" layoutX="263.0" layoutY="323.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #154ba3; -fx-text-fill: white;" text="Continue" />
       <Label fx:id="lblFirst" layoutX="76.0" layoutY="129.0" style="-fx-text-fill: #FFFFFF;" text="First Name">
          <font>
             <Font size="15.0" />

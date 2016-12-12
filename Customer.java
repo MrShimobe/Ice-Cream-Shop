@@ -3,7 +3,7 @@ import java.io.IOException;
 public class Customer {
 	private String firstName;
 	private String lastName;
-	private static int customerID = 0;;
+	protected int customerID = 0;
 
 	public Customer(String firstName, String lastName) {
 		this.firstName = firstName;
